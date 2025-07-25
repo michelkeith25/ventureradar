@@ -1,65 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Venture Radar</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-</head>
-<body class="bg-gray-50 text-gray-800">
-  <!-- Header -->
-  <header class="bg-gray-900 text-white text-center py-10">
-    <h1 class="text-4xl font-bold">Venture Radar</h1>
-    <p class="text-lg mt-2">Scouting Tomorrow’s Tech for Today’s Investors</p>
-  </header>
+export default function LandingPage() {
+  return (
+    <main className="min-h-screen bg-gray-50 text-gray-900 p-6">
+      {/* Hero Section */}
+      <section className="text-center py-12">
+        <h1 className="text-4xl font-bold mb-4">Venture Radar</h1>
+        <p className="text-lg mb-6">Scouting Tomorrow’s Tech—Before It Goes Mainstream</p>
+        <button className="bg-black text-white px-6 py-3 rounded-2xl shadow-lg hover:bg-gray-800 transition">Get Scouting Insights</button>
+      </section>
 
-  <!-- Why Section -->
-  <section class="max-w-3xl mx-auto py-10 px-4">
-    <h2 class="text-2xl font-semibold mb-4">Why Venture Radar?</h2>
-    <ul class="list-disc list-inside space-y-2">
-      <li>Real-time startup scouting tailored to your investment thesis</li>
-      <li>Access to emerging tech signals and private beta opportunities</li>
-      <li>On-demand support from expert freelance researchers</li>
-    </ul>
-  </section>
+      {/* Two-Column Layout */}
+      <section className="grid md:grid-cols-2 gap-8 py-12">
+        {/* Top Stories Left Column */}
+        <div>
+          <h2 className="text-2xl font-semibold mb-4">Top Stories in Emerging Tech</h2>
+          <ul className="space-y-3">
+            <li className="bg-white p-4 rounded-xl shadow">🧠 AI startup raises $25M to decode brain signals</li>
+            <li className="bg-white p-4 rounded-xl shadow">🚀 New propulsion tech from MIT lab spun into startup</li>
+            <li className="bg-white p-4 rounded-xl shadow">🌱 Synthetic biology firm secures DARPA contract</li>
+            <li className="bg-white p-4 rounded-xl shadow">🔋 Quantum battery startup signs with Tier 1 OEM</li>
+          </ul>
+        </div>
 
-  <!-- Top Tech Stories Section -->
-  <section class="bg-white py-10 px-4 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-semibold mb-6 text-center">Top Stories in Emerging Tech</h2>
-    <ul id="tech-stories" class="space-y-4 text-blue-700">
-      <li>Loading top stories...</li>
-    </ul>
-  </section>
+        {/* Value Bullets + Video Right Column */}
+        <div>
+          <h2 className="text-2xl font-semibold mb-4">Why Venture Radar?</h2>
+          <ul className="list-disc pl-5 space-y-2 text-base">
+            <li>Save 30+ hours per month on tech scouting</li>
+            <li>Curated startups aligned with your thesis</li>
+            <li>Pre-noise insights before TechCrunch</li>
+            <li>Actionable briefs, not just buzz</li>
+          </ul>
+          <div className="mt-6 aspect-video bg-gray-200 rounded-xl flex items-center justify-center text-gray-500">
+            [Video Placeholder]
+          </div>
+        </div>
+      </section>
 
-  <script>
-    fetch('https://api.rss2json.com/v1/api.json?rss_url=https://techcrunch.com/startups/feed/')
-      .then(response => response.json())
-      .then(data => {
-        const stories = data.items.slice(0, 5);
-        const container = document.getElementById('tech-stories');
-        container.innerHTML = '';
-        stories.forEach(story => {
-          const li = document.createElement('li');
-          li.innerHTML = `<a href="${story.link}" target="_blank" class="hover:underline">${story.title}</a>`;
-          container.appendChild(li);
-        });
-      })
-      .catch(() => {
-        document.getElementById('tech-stories').innerHTML = '<li class="text-red-500">Failed to load stories.</li>';
-      });
-  </script>
+      {/* Use-Case Bullets */}
+      <section className="py-12">
+        <h2 className="text-2xl font-semibold text-center mb-6">What Can You Use It For?</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-white p-6 rounded-xl shadow text-center">
+            <h3 className="font-semibold mb-2">VC Thesis Scouting</h3>
+            <p>Identify pre-seed startups aligned with your investment themes.</p>
+          </div>
+          <div className="bg-white p-6 rounded-xl shadow text-center">
+            <h3 className="font-semibold mb-2">Corp Dev Intel</h3>
+            <p>Spot acquisition targets in emerging markets before competitors do.</p>
+          </div>
+          <div className="bg-white p-6 rounded-xl shadow text-center">
+            <h3 className="font-semibold mb-2">R&D Portfolio Alignment</h3>
+            <p>Ensure internal R&D isn't blindsided by external innovation.</p>
+          </div>
+        </div>
+      </section>
 
-  <!-- Call to Action -->
-  <section class="bg-blue-100 py-10 text-center">
-    <h2 class="text-2xl font-bold mb-2">Ready to Find the Next Big Thing?</h2>
-    <p class="mb-4">Let’s talk. We scout, you invest.</p>
-    <a href="mailto:contact@ventureradar.io" class="bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800">Email Us</a>
-  </section>
+      {/* FAQ Section */}
+      <section className="py-12">
+        <h2 className="text-2xl font-semibold text-center mb-6">Frequently Asked Questions</h2>
+        <div className="max-w-3xl mx-auto space-y-4">
+          <div className="bg-white p-4 rounded-xl shadow">
+            <h3 className="font-semibold">Do you track international startups?</h3>
+            <p className="text-sm text-gray-600">Yes, we cover North America, Europe, and select APAC regions.</p>
+          </div>
+          <div className="bg-white p-4 rounded-xl shadow">
+            <h3 className="font-semibold">Is this for VCs only?</h3>
+            <p className="text-sm text-gray-600">No, our insights support venture, corp dev, and innovation teams.</p>
+          </div>
+          <div className="bg-white p-4 rounded-xl shadow">
+            <h3 className="font-semibold">How often are reports delivered?</h3>
+            <p className="text-sm text-gray-600">We provide biweekly scouting memos via email or Slack.</p>
+          </div>
+        </div>
+      </section>
 
-  <!-- Footer -->
-  <footer class="text-center py-4 text-sm text-gray-500">
-    &copy; 2025 Venture Radar. All rights reserved.
-  </footer>
+      {/* CTA Bottom Section */}
+      <section className="text-center py-12">
+        <h2 className="text-2xl font-semibold mb-4">Want to Stay Ahead of the Curve?</h2>
+        <button className="bg-black text-white px-8 py-4 rounded-2xl shadow-lg text-lg hover:bg-gray-800 transition">Start Scouting With Us</button>
+      </section>
+    </main>
+  );
+}
+
 </body>
 </html>
 
